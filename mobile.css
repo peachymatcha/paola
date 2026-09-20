@@ -1,0 +1,7 @@
+@media(max-width:900px){
+  .rack{display:flex;gap:10px;max-height:none;overflow-x:auto;overflow-y:hidden;padding:4px 5px 13px 1px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:auto}
+  .garment{flex:0 0 92px;scroll-snap-align:start}
+  .rack::-webkit-scrollbar{height:10px}
+  .rack::-webkit-scrollbar-thumb{background:#ec799a;border:2px solid #252033;border-radius:999px}
+  .rack::-webkit-scrollbar-track{background:#f0d1db;border:2px solid #252033;border-radius:999px}
+}

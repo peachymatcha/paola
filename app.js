@@ -21,3 +21,17 @@ function beginPieceDrag(event) { event.preventDefault();const piece=event.curren
 function beginRackDrag(event,data) { if(event.pointerType==='mouse'&&event.button!==0)return;event.preventDefault();const piece=makePiece(data,1.25,1.25);const move=e=>{autoScrollDuringDrag(e);const p=boardPoint(e);place(piece,p.x-data.w/2,p.y-data.h/2)};const up=e=>{const p=boardPoint(e),x=p.x-data.w/2,y=p.y-data.h/2,done=snap(piece,x,y);place(piece,done.x,done.y);if(piece.dataset.name==='Flimsy nightie'&&done.snapped)nightieBubble.hidden=false;window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);updateLayers()};window.addEventListener('pointermove',move);window.addEventListener('pointerup',up,{once:true});move(event); }
 document.querySelector('#reset').addEventListener('click',()=>{board.querySelectorAll('.piece').forEach(piece=>piece.remove());hint.hidden=false;nightieBubble.hidden=true;updateLayers()});
 document.querySelector('#close-bubble').addEventListener('click',()=>{nightieBubble.hidden=true});
+
+const themeChoices = document.querySelectorAll('.theme-choice');
+function setTheme(theme) {
+  document.body.dataset.theme = theme;
+  themeChoices.forEach(choice => {
+    const selected = choice.dataset.theme === theme;
+    choice.classList.toggle('active', selected);
+    choice.setAttribute('aria-pressed', selected);
+  });
+  localStorage.setItem('paola-theme', theme);
+}
+themeChoices.forEach(choice => choice.addEventListener('click', () => setTheme(choice.dataset.theme)));
+const savedTheme = localStorage.getItem('paola-theme');
+if (savedTheme && document.querySelector(`[data-theme="${savedTheme}"]`)) setTheme(savedTheme);

@@ -1,0 +1,6 @@
+@media (min-width:751px){
+  .hair-rack{display:flex!important;gap:5px!important}
+  .hair-choice{flex:0 0 26px!important;width:26px!important;height:26px!important;aspect-ratio:auto!important}
+  .rack{grid-template-columns:repeat(4,minmax(0,1fr))!important;max-height:250px!important}
+  .layer-panel{max-height:115px!important}
+}

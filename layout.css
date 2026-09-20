@@ -1,0 +1,10 @@
+@media (min-width:751px){
+  .game{grid-template-columns:minmax(400px,1fr) 410px;height:600px;align-items:stretch}
+  .play-area{height:600px!important;min-height:600px!important;align-self:stretch!important}
+  .closet{height:600px;overflow:hidden;display:grid;grid-template-columns:.8fr 1.45fr;grid-template-areas:"top top" "hair help" "hair rack" "layers layers";column-gap:13px;align-content:start;padding:20px}
+  .closet-top{grid-area:top}
+  .hair-panel{grid-area:hair;border-bottom:0;padding:13px 0 0}
+  .closet>.how{grid-area:help;margin:13px 0 5px;font-size:.68rem}
+  .rack{grid-area:rack;grid-template-columns:repeat(2,1fr);max-height:262px;margin:0;align-self:start}
+  .layer-panel{grid-area:layers;max-height:154px;overflow-y:auto;margin-top:13px;padding-top:11px}
+}

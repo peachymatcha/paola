@@ -8,8 +8,8 @@
   .hair-panel .how{display:none}
   .hair-rack{grid-template-columns:repeat(7,1fr);gap:5px}
   .hair-choice{border-radius:5px}
-  .hair-choice span{display:none}
   .closet>.how{grid-area:help;margin:9px 0 5px;font-size:.68rem}
   .rack{grid-area:rack;grid-template-columns:repeat(3,1fr);max-height:210px;margin:0;align-self:start}
   .layer-panel{grid-area:layers;max-height:126px;overflow-y:auto;margin-top:12px;padding-top:10px}
 }
+.hair-choice span{display:block;top:3px;right:3px;bottom:auto;left:auto;width:15px;padding:1px 0;background:#fffdf5;border:1px solid var(--ink);border-radius:50%;font:500 .5rem/12px "DM Mono",monospace;text-align:center}

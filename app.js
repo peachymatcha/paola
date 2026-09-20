@@ -1,6 +1,34 @@
 const items = [
-  ['brdnypants.png','Burgundy pants'],['brgndydrs.png','Burgundy dress'],['crmcropswtr.png','Cream crop sweater'],['flimsynightie.png','Flimsy nightie'],['rnbwombredrs.png','Rainbow ombré dress'],['pnkswtr.png','Pink sweater'],['slvsilkset.png','Silver silk set'],['strpbbydolldrs.png','Striped baby-doll dress'],['tanminiskrt.png','Tan mini skirt'],['whitevesttop.png','White vest top'],['blackwedges.png','Black wedges'],['blkpants.png','Black pants'],['docmartens.png','Doc Martens'],['blacklstop.png','Black ls top'],['whtblouse.png','White blouse'],['pnkdrs.png','Pink dress'],['brgndyskrt.png','Burgandy skirt'],['flimsynightieblue.png','Blue slip dress'],['redberet.png,'Red beret']];
-const hairstyles = [['casualbunHAIR.png','Casual bun'],['lowbunHAIR.png','Low bun'],['downHAIR.png','Down'],['bangsdownHAIR.png','Bangs down']],['ponytailHAIR.png','Ponytail'],['y2kbunHAIR.png','Y2K bun'],['wavybobHAIR.png','Wavy bob'],;
+  ['brdnypants.png', 'Burgundy pants'],
+  ['brgndydrs.png', 'Burgundy dress'],
+  ['crmcropswtr.png', 'Cream crop sweater'],
+  ['flimsynightie.png', 'Flimsy nightie'],
+  ['rnbwombredrs.png', 'Rainbow ombré dress'],
+  ['pnkswtr.png', 'Pink sweater'],
+  ['slvsilkset.png', 'Silver silk set'],
+  ['strpbbydolldrs.png', 'Striped baby-doll dress'],
+  ['tanminiskrt.png', 'Tan mini skirt'],
+  ['whitevesttop.png', 'White vest top'],
+  ['blackwedges.png', 'Black wedges'],
+  ['blkpants.png', 'Black pants'],
+  ['docmartens.png', 'Doc Martens'],
+  ['blacklstop.png', 'Black long-sleeve top'],
+  ['whtblouse.png', 'White blouse'],
+  ['pnkdrs.png', 'Pink dress'],
+  ['brgndyskrt.png', 'Burgundy skirt'],
+  ['flimsynightieblue.png', 'Blue slip dress'],
+  ['redberet.png', 'Red beret']
+];
+
+const hairstyles = [
+  ['casualbunHAIR.png', 'Casual bun'],
+  ['lowbunHAIR.png', 'Low bun'],
+  ['downHAIR.png', 'Down'],
+  ['bangsdownHAIR.png', 'Bangs down'],
+  ['ponytailHAIR.png', 'Ponytail'],
+  ['y2kbunHAIR.png', 'Y2K bun'],
+  ['wavybobHAIR.png', 'Wavy bob']
+];
 const rack = document.querySelector('#rack'), hairRack = document.querySelector('#hair-rack'), board = document.querySelector('#board'), layers = document.querySelector('#layers'), emptyLayers = document.querySelector('#empty-layers'), hint = document.querySelector('#hint'), nightieBubble = document.querySelector('#nightie-bubble');
 const BOARD_W = 300, BOARD_H = 432;
 let z = 3;

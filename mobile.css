@@ -1,8 +1,8 @@
 @media(max-width:900px){
-  .rack{display:flex;gap:10px;max-height:none;overflow-x:auto;overflow-y:hidden;padding:4px 5px 13px 1px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:auto}
+  .rack{display:flex;gap:10px;max-height:none;overflow-x:auto;overflow-y:hidden;padding:4px 5px 20px 1px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:auto}
   .garment{flex:0 0 92px;scroll-snap-align:start}
-  .rack::-webkit-scrollbar{height:10px}
-  .rack::-webkit-scrollbar-thumb{background:#ec799a;border:2px solid #252033;border-radius:999px}
+  .rack::-webkit-scrollbar{height:20px}
+  .rack::-webkit-scrollbar-thumb{min-width:64px;background:#ec799a;border:3px solid #252033;border-radius:999px}
   .rack::-webkit-scrollbar-track{background:#f0d1db;border:2px solid #252033;border-radius:999px}
 }
 
@@ -10,9 +10,10 @@
   main{padding:20px 8px 16px!important}
   h1{font-size:clamp(2.5rem,14vw,4rem);margin-bottom:14px}
   .game{display:block!important;width:100%;overflow:hidden}
-  .play-area{display:block!important;position:relative!important;width:100%!important;height:480px!important;min-height:480px!important}
-  .board{display:block!important;visibility:visible!important;opacity:1!important;width:280px!important;height:403px!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:4!important}
+  .play-area{display:block!important;position:relative!important;width:100%!important;height:480px!important;min-height:480px!important;touch-action:pan-y!important}
+  .board{display:block!important;visibility:visible!important;opacity:1!important;width:280px!important;height:403px!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:4!important;touch-action:pan-y!important}
   .board>.base,.board>.hair-piece{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100%!important}
+  .board>.piece{touch-action:pan-y!important}
   .closet{display:block!important;width:100%!important;height:auto!important;overflow:visible!important;padding:16px!important}
   .hair-panel{display:block!important;height:auto!important;overflow:visible!important;padding:12px 0!important}
   .hair-rack{display:flex!important;flex-wrap:wrap!important;align-items:flex-start!important;gap:7px!important;width:100%!important;height:auto!important}
@@ -20,7 +21,7 @@
   .hair-choice span{position:static!important;display:grid!important;place-items:center!important;inset:auto!important;width:100%!important;height:100%!important;font-size:.8rem!important}
   .closet>.how{margin:10px 0 6px}
   .rack{display:flex!important;gap:9px!important;width:100%!important;height:auto!important;max-height:none!important;overflow-x:auto!important;overflow-y:hidden!important}
-  .garment{flex:0 0 86px!important;width:86px!important;height:86px!important;min-width:86px!important;min-height:86px!important;aspect-ratio:auto!important}
+  .garment{flex:0 0 86px!important;width:86px!important;height:86px!important;min-width:86px!important;min-height:86px!important;aspect-ratio:auto!important;touch-action:pan-x pan-y!important}
   .layer-panel{height:auto!important;max-height:none!important;overflow:visible!important}
 }
 

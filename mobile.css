@@ -10,10 +10,10 @@
   main{padding:20px 8px 16px!important}
   h1{font-size:clamp(2.5rem,14vw,4rem);margin-bottom:14px}
   .game{display:block!important;width:100%;overflow:hidden}
-  .play-area{display:block!important;position:relative!important;width:100%!important;height:480px!important;min-height:480px!important;touch-action:pan-y!important}
-  .board{display:block!important;visibility:visible!important;opacity:1!important;width:280px!important;height:403px!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:4!important;touch-action:pan-y!important}
+  .play-area{display:block!important;position:relative!important;width:100%!important;height:480px!important;min-height:480px!important;touch-action:none!important}
+  .board{display:block!important;visibility:visible!important;opacity:1!important;width:280px!important;height:403px!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;z-index:4!important;touch-action:none!important}
   .board>.base,.board>.hair-piece{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100%!important}
-  .board>.piece{touch-action:pan-y!important}
+  .board>.piece{touch-action:none!important}
   .closet{display:flex!important;flex-direction:column!important;width:100%!important;height:auto!important;overflow:visible!important;padding:16px!important}
   .closet-top{order:1!important}
   .closet>.how{order:2!important}

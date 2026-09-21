@@ -1,6 +1,6 @@
 @media(max-width:900px){
-  .rack{display:flex;gap:10px;max-height:none;overflow-x:auto;overflow-y:hidden;padding:4px 5px 20px 1px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:auto}
-  .garment{flex:0 0 92px;scroll-snap-align:start}
+  .rack{display:flex;gap:7px;max-height:none;overflow-x:auto;overflow-y:hidden;padding:4px 5px 20px 1px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:auto}
+  .garment{flex:0 0 74px;scroll-snap-align:start}
   .rack::-webkit-scrollbar{height:20px}
   .rack::-webkit-scrollbar-thumb{min-width:64px;background:#ec799a;border:3px solid #252033;border-radius:999px}
   .rack::-webkit-scrollbar-track{background:#f0d1db;border:2px solid #252033;border-radius:999px}
@@ -25,8 +25,8 @@
   .hair-choice{display:grid!important;place-items:center!important;flex:0 0 42px!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;max-width:42px!important;max-height:42px!important;aspect-ratio:auto!important}
   .hair-choice span{position:static!important;display:grid!important;place-items:center!important;inset:auto!important;width:100%!important;height:100%!important;font-size:.8rem!important}
   .closet>.how{margin:10px 0 6px}
-  .rack{display:flex!important;gap:9px!important;width:100%!important;height:auto!important;max-height:none!important;overflow-x:auto!important;overflow-y:hidden!important}
-  .garment{flex:0 0 86px!important;width:86px!important;height:86px!important;min-width:86px!important;min-height:86px!important;aspect-ratio:auto!important;touch-action:pan-x pan-y!important}
+  .rack{display:flex!important;gap:7px!important;width:100%!important;height:auto!important;max-height:none!important;overflow-x:auto!important;overflow-y:hidden!important}
+  .garment{flex:0 0 74px!important;width:74px!important;height:82px!important;min-width:74px!important;min-height:82px!important;aspect-ratio:auto!important;touch-action:pan-x pan-y!important}
   .layer-panel{height:auto!important;max-height:none!important;overflow:visible!important}
 }
 

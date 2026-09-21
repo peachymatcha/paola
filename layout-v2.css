@@ -1,5 +1,5 @@
 @media (min-width:751px){
-  .game{max-width:1160px!important;grid-template-columns:minmax(400px,1fr) 500px!important}
+  .game{max-width:1160px!important;grid-template-columns:minmax(340px,2fr) minmax(0,3fr)!important}
   .hair-rack{display:flex!important;gap:5px!important}
   .hair-choice{flex:0 0 26px!important;width:26px!important;height:26px!important;aspect-ratio:auto!important}
   .rack{grid-template-columns:repeat(4,minmax(0,1fr))!important;max-height:250px!important}

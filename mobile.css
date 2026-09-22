@@ -1,8 +1,16 @@
 @media(max-width:900px){
   .rack{display:flex;gap:7px;max-height:none;overflow-x:auto;overflow-y:hidden;padding:4px 5px 20px 1px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:auto}
-  .garment{flex:0 0 74px;scroll-snap-align:start}
-  .rack::-webkit-scrollbar{height:20px}
+  .garment{flex:0 0 74px;scroll-snap-align:start;touch-action:pan-x!important}
+  .rack::-webkit-scrollbar{height:24px}
   .rack::-webkit-scrollbar-thumb{min-width:64px;background:#ec799a;border:3px solid #252033;border-radius:999px}
+  .rack::-webkit-scrollbar-track{background:#f0d1db;border:2px solid #252033;border-radius:999px}
+}
+
+@media(min-width:901px) and (max-width:1200px){
+  .rack{scrollbar-width:auto;scrollbar-color:#ec799a #f0d1db;overscroll-behavior:contain;touch-action:pan-y}
+  .garment{touch-action:pan-y!important}
+  .rack::-webkit-scrollbar{width:24px}
+  .rack::-webkit-scrollbar-thumb{min-height:64px;background:#ec799a;border:3px solid #252033;border-radius:999px}
   .rack::-webkit-scrollbar-track{background:#f0d1db;border:2px solid #252033;border-radius:999px}
 }
 

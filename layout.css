@@ -1,7 +1,7 @@
 @media (min-width:751px){
   .game{grid-template-columns:minmax(400px,1fr) 410px;height:600px;align-items:stretch}
   .play-area{height:600px!important;min-height:600px!important;align-self:stretch!important}
-  .closet{height:600px;overflow:hidden;display:grid;grid-template-columns:1fr;grid-template-areas:"top" "hair" "help" "rack" "layers";align-content:start;padding:20px}
+  .closet{height:600px;overflow:hidden;display:grid;grid-template-columns:1fr;grid-template-areas:"top" "hair" "help" "categories" "rack" "layers";grid-template-rows:auto auto auto auto minmax(0,250px) minmax(0,1fr);align-content:stretch;padding:20px}
   .closet-top{grid-area:top}
   .hair-panel{grid-area:hair;border-bottom:var(--line);padding:8px 0 9px}
   .hair-panel h3{font-size:1rem;margin:0 0 5px}
@@ -9,7 +9,8 @@
   .hair-rack{display:flex;gap:5px}
   .hair-choice{flex:0 0 29px;width:29px;height:29px;aspect-ratio:auto;border-radius:5px}
   .closet>.how{grid-area:help;margin:9px 0 5px;font-size:.68rem}
+  .category-bar{grid-area:categories;min-width:0;margin:4px 0 6px}
   .rack{grid-area:rack;grid-template-columns:repeat(3,1fr);max-height:233px;margin:0;align-self:start}
-  .layer-panel{grid-area:layers;max-height:126px;overflow-y:auto;margin-top:12px;padding-top:10px}
+  .layer-panel{grid-area:layers;min-height:0;max-height:none;overflow-y:auto;margin-top:10px;padding-top:8px}
 }
 .hair-choice span{display:grid;place-items:center;inset:0;width:auto;padding:0;background:transparent;border:0;border-radius:0;font:500 1rem/1 "DM Mono",monospace;text-align:center}

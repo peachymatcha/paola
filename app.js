@@ -16,7 +16,39 @@ function updateLayers() { const pieces=placedPieces(); layers.replaceChildren();
 function changeLayer(piece,direction) { if(piece.dataset.fixedSplit==='true')return;const pieces=placedPieces(),index=pieces.indexOf(piece),other=pieces[index+direction];if(!other)return;const currentZ=piece.style.zIndex;piece.style.zIndex=other.style.zIndex;other.style.zIndex=currentZ;updateLayers(); }
 function makePiece(data,x=data.x,y=data.y) { const image=document.createElement('img');image.src=`assets/${data.frontSrc||data.src}`;image.alt=data.name;image.className='piece';image.style.width=`${data.w*100}%`;image.style.height=`${data.h*100}%`;image.style.zIndex=data.frontSrc?100000:++z;image.dataset.name=data.name;image.dataset.snapX=data.x;image.dataset.snapY=data.y;image.dataset.w=data.w;image.dataset.h=data.h;if(data.frontSrc){const group=`split-${Date.now()}-${Math.random().toString(36).slice(2)}`;const back=document.createElement('img');back.src=`assets/${data.src}`;back.alt='';back.className='piece';back.style.width=image.style.width;back.style.height=image.style.height;back.dataset.group=group;back.dataset.splitRole='back';image.dataset.group=group;image.dataset.splitRole='front';image.style.pointerEvents='none';if(data.layeredBack){back.style.zIndex=++z;back.dataset.name=data.name;back.dataset.snapX=data.x;back.dataset.snapY=data.y;back.dataset.w=data.w;back.dataset.h=data.h;back.addEventListener('pointerdown',beginPieceDrag);image.style.zIndex=100000;image.dataset.layerHidden='true'}else{back.style.zIndex=1;back.dataset.layerHidden='true';back.style.pointerEvents='none';image.dataset.fixedSplit='true'}board.append(back,image)}else{image.addEventListener('pointerdown',beginPieceDrag);board.append(image)}place(image,x,y);hint.hidden=true;updateLayers();return image; }
 hairstyles.forEach(([src,name],index)=>{const button=document.createElement('button');button.type='button';button.className='hair-choice';button.setAttribute('aria-label',name);button.innerHTML=`<span>${index+1}</span>`;if(index===0)button.classList.add('active');button.addEventListener('click',()=>{hairLayer.src=src?`assets/${src}`:'';hairRack.querySelectorAll('.hair-choice').forEach(choice=>choice.classList.remove('active'));button.classList.add('active')});hairRack.append(button)});
-items.forEach(item=>{const data=dataFor(item),button=document.createElement('button');button.type='button';button.className='garment';button.innerHTML=`<img src="assets/${data.src}" alt=""><span>${data.name}</span>`;button.addEventListener('click',()=>{if(button.dataset.ignoreClick){delete button.dataset.ignoreClick;return}makePiece(data);showPieceMessage(data.name)});button.addEventListener('pointerdown',event=>{if(window.matchMedia('(max-width:900px)').matches)return;button.dataset.ignoreClick='true';beginRackDrag(event,data)});rack.append(button)});
+const wardrobeCategories = [['all','All'],['dresses','Dresses'],['tops','Tops'],['bottoms','Bottoms'],['shoes','Shoes'],['sets','Sets'],['accessories','Accessories']];
+const itemCategories = {
+  'Burgundy pants':'bottoms','Burgundy dress':'dresses','Cream crop sweater':'tops','Flimsy nightie':'dresses',
+  'Rainbow ombré dress':'dresses','Pink sweater':'tops','Silver silk set':'sets','Striped baby-doll dress':'dresses',
+  'Tan mini skirt':'bottoms','White vest top':'tops','Black wedges':'shoes','Black pants':'bottoms',
+  'Doc Martens':'shoes','Black long-sleeve top':'tops','White blouse':'tops','Pink dress':'dresses',
+  'Burgundy skirt':'bottoms','Blue slip dress':'dresses','Red beret':'accessories','Mary Janes':'shoes',
+  'Mary Jane heels':'shoes','Frilly socks':'accessories','Motorcycle jacket':'tops','Cherry bird':'accessories',
+  'Navy cutie bikini':'sets','Yellow floral bikini':'sets','Silver heels':'shoes','Heidi':'accessories',
+  'Tan cardigan':'tops','Blue button-down':'tops','Relaxed low rise jeans':'bottoms','Green striped button-down':'tops',
+  'Fitted blue button-down':'tops','Fitted white button-down':'tops'
+};
+const categoryBar = document.querySelector('#category-bar');
+function setWardrobeCategory(category) {
+  categoryBar.querySelectorAll('.category-choice').forEach(button => {
+    const active = button.dataset.category === category;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', active);
+  });
+  rack.querySelectorAll('.garment').forEach(button => {
+    button.hidden = category !== 'all' && button.dataset.category !== category;
+  });
+}
+wardrobeCategories.forEach(([category,label],index) => {
+  const button=document.createElement('button');
+  button.type='button';button.className='category-choice';button.dataset.category=category;
+  button.textContent=label;button.setAttribute('aria-pressed',index===0);
+  if(index===0)button.classList.add('active');
+  button.addEventListener('click',()=>setWardrobeCategory(category));
+  categoryBar.append(button);
+});
+
+items.forEach(item=>{const data=dataFor(item),button=document.createElement('button');button.type='button';button.className='garment';button.dataset.category=itemCategories[data.name] || 'accessories';button.innerHTML=`<img src="assets/${data.src}" alt=""><span>${data.name}</span>`;button.addEventListener('click',()=>{if(button.dataset.ignoreClick){delete button.dataset.ignoreClick;return}makePiece(data);showPieceMessage(data.name)});button.addEventListener('pointerdown',event=>{if(window.matchMedia('(max-width:900px)').matches)return;button.dataset.ignoreClick='true';beginRackDrag(event,data)});rack.append(button)});
 function boardPoint(event) { const r=board.getBoundingClientRect();return {x:(event.clientX-r.left)/r.width,y:(event.clientY-r.top)/r.height}; }
 function autoScrollDuringDrag(event) { const edge=85, amount=26;if(event.clientY<edge)window.scrollBy(0,-amount);else if(event.clientY>window.innerHeight-edge)window.scrollBy(0,amount); }
 function place(piece,x,y) { pieceGroup(piece).forEach(part=>{part.style.left=`${x*100}%`;part.style.top=`${y*100}%`}); }
